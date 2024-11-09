@@ -1,4 +1,3 @@
-# NixOS Dotfiles
-A fresh rewrite of my dotfiles, intended as a cohesive foundation, as opposed to my previous slop of impulsive config.
+# IO
+NixOS powered janky homelab setup, little to note as of yet
 
-Inane keyboard smashes still pending, please check back later.
