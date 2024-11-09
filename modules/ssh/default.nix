@@ -1,13 +1,13 @@
-{ ... }: {
+{ lib, ... }: {
   services.openssh = {
-    enable = true;
+    enable = lib.mkDefault true;
     ports = [ 22 ];
 
     settings = {
       AllowUsers = [ "ed" ];
-      UseDns = true;
-      X11Forwarding = false;
-      PermitRootLogin = "prohibit-password";
+      UseDns = lib.mkDefault true;
+      X11Forwarding = lib.mkDefault false;
+      PermitRootLogin = lib.mkDefault "prohibit-password";
     };
   };
 }
