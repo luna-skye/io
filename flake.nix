@@ -16,7 +16,7 @@
     # ## Arguments
     # - `host`: The name of the host system
     # - `users`: A list of string names for home-manager users to overlay onto the system
-    mkNixosHost = host: users: lib.nixosSystem {
+    mkNixosHost = host: lib.nixosSystem {
       specialArgs = { inherit inputs; inherit utils; };
       system = "x86_64-linux";
       modules = [
