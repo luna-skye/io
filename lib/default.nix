@@ -1,8 +1,6 @@
 { self, inputs, ... }: let
   inherit (inputs.nixpkgs) lib;
-  mkOptions = import ./mkOptions.nix { inherit inputs; };
-in
-  mkOptions // {
+in {
   # Returns a boolean representing whether or not ANY configured hm user has a specific boolean option enabled 
   # Takes in a list of strings representing the config option path, and requires the config attrset to be passed
   # 
