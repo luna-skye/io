@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   services.jellyfin = {
     enable = true;
-    openFirewall = false;
+    openFirewall = true;
   };
 
   environment.systemPackages = builtins.attrValues { inherit (pkgs)
