@@ -1,5 +1,5 @@
-{ lib, utils, pkgs, ... }: {
-  imports = utils.autoload ../modules;
+{ lib, bead, pkgs, ... }: {
+  imports = bead.getSubmodules ../modules;
 
   environment.systemPackages = builtins.attrValues { inherit (pkgs)
     fastfetch
