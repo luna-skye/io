@@ -13,4 +13,7 @@
       };
     };
   };
+  
+  networking.firewall.allowedTCPPorts = [ 3000 ];
+  networking.firewall.allowedUDPPorts = [ ];
 }
