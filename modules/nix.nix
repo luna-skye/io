@@ -28,16 +28,9 @@
   # Enable Nix Flakes and Nix-Command by default, we need them
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Setup bootloader and systemd stuff
-  boot.loader.systemd-boot.enable = lib.mkDefault true;
-  boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
-
   # Force disable emergency mode, it's deadlocked NixOS systems for me in the past
   systemd.enableEmergencyMode = lib.mkForce false;
 
-  # Networking
-  networking.networkmanager.enable = lib.mkDefault true;
-  # networking.wireless.enable = lib.mkDefault true;
 
   # XServer & XKB
   services.xserver.enable = lib.mkDefault true;
