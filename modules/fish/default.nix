@@ -1,6 +1,7 @@
 { lib, utils, pkgs, ... }: {
   programs.fish = {
     enable = lib.mkDefault true;
+
     shellAbbrs = {
       h = lib.mkDefault "history";
       x = lib.mkDefault "exit";
