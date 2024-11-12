@@ -31,6 +31,8 @@
   # Force disable emergency mode, it's deadlocked NixOS systems for me in the past
   systemd.enableEmergencyMode = lib.mkForce false;
 
+  # Enable psuedo-dm to allow autologin without a display manager
+  services.xserver.displayManager.startx.enable = true;
 
   # XServer & XKB
   services.xserver.enable = lib.mkDefault true;
