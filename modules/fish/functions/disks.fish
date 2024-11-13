@@ -1,5 +1,5 @@
 function disks -d "Prints useful information about disk devices"
-  set blks (lsblk -o type,name,label,model,fstype,log-sec,size,fsused,fsavail)
+  set blks (lsblk -o type,name,model,fstype,log-sec,phy-sec,mountpoint,size,fsused,fsavail)
   for blk in $blks
     if string match -q "TYPE *" "$blk"
       set_color grey -b black
