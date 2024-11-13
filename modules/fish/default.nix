@@ -2,7 +2,7 @@
   programs.fish = {
     enable = lib.mkDefault true;
 
-    pkg = pkgs.fish.override {
+    package = pkgs.fish.override {
       localConfig = builtins.readFile ./config.fish;
       functionDirs = [ ./functions ];
     };
