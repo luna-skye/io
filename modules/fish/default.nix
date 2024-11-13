@@ -12,8 +12,7 @@ in {
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/fish \
-          --add-flags "--init-command" \
-          --add-flags "${init}"
+          --add-flags "--init-command=${init}"
       '';
       meta.mainProgram = "fish";
     };
