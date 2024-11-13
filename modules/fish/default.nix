@@ -1,5 +1,5 @@
 { lib, pkgs, ... }: let
-  inherit (lib.strings) concatStringSep splitString;
+  inherit (lib.strings) concatStringsSep splitString;
 
   initCommands = /* fish */ ''
     set -p fish_function_path ${./functions}
@@ -17,7 +17,7 @@ in {
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/fish \
-          --add-flags '--init-command "${concatStringSep ";" (splitString "\n" initCommands)}"'
+          --add-flags '--init-command "${concatStringsSep ";" (splitString "\n" initCommands)}"'
       '';
       meta.mainProgram = "fish";
     };
