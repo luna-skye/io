@@ -2,6 +2,11 @@
   programs.fish = {
     enable = lib.mkDefault true;
 
+    pkg = pkgs.fish.override {
+      localConfig = builtins.readFile ./config.fish;
+      functionDirs = [ ./functions ];
+    };
+
     shellAbbrs = {
       h = lib.mkDefault "history";
       x = lib.mkDefault "exit";
