@@ -1,11 +1,12 @@
-{ lib, utils, pkgs, ... }: {
+{ lib, utils, pkgs, ... }: let
+  wrappedFish = pkgs.fish.overrideAttrs (oldAttrs: {
+    localConfig = builtins.readFile ./config.fish;
+    functionDirs = [ ./functions ];
+  });
+in {
   programs.fish = {
     enable = lib.mkDefault true;
-
-    package = pkgs.fish.override {
-      localConfig = builtins.readFile ./config.fish;
-      functionDirs = [ ./functions ];
-    };
+    package = wrappedFish;
 
     shellAbbrs = {
       h = lib.mkDefault "history";
