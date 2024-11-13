@@ -1,6 +1,6 @@
 { lib, utils, pkgs, ... }: let
   init = ''
-    set --prepend fish_function_path ${./functions}
+    set -g fish_function_path ${./functions} $fish_function_path 
     source ${./config.fish}
   '';
 in {
