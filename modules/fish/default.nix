@@ -1,12 +1,22 @@
 { lib, utils, pkgs, ... }: let
-  wrappedFish = pkgs.fish.overrideAttrs (oldAttrs: {
-    localConfig = builtins.readFile ./config.fish;
-    functionDirs = [ ./functions ];
-  });
+  init = ''
+    set --prepend fish_function_path ${./functions}
+    source ${./config.fish}
+  '';
 in {
   programs.fish = {
     enable = lib.mkDefault true;
-    package = wrappedFish;
+    package = pkgs.symlinkJoin {
+      name = "fish-wrapped";
+      paths = [ pkgs.fish ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/fish \
+          --add-flags "--init-command" \
+          --add-flags "${init}"
+      '';
+      meta.mainProgram = "fish";
+    };
 
     shellAbbrs = {
       h = lib.mkDefault "history";
