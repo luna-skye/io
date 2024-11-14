@@ -3,6 +3,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  networking.hostId = "508fd7ee";
   networking.hostName = "bebop";
   networking.networkmanager.enable = true;
 
