@@ -13,3 +13,4 @@ function disks -d "Prints useful information about disk devices"
     echo "  $blk  "
   end
 end
+disks
